@@ -1,0 +1,173 @@
+<html lang="en">
+<head>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greeting2</title>
+
+    <style>
+
+        /*CSS RESETS*/
+
+body{ font-family: "Sofia";
+    background-color: #fff;
+    line-height: 1.6;
+
+}
+
+h1 {
+    margin-top: 0;
+}
+
+
+/*CSS START*/
+
+.full-table {
+    display: table;
+    height: 100%;
+    width: 80%;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.card { font-family: "Sofia";
+    padding: 10px 25px 10px 25px;
+    border-radius: 0px;
+  background-image:url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fres1-cn.c.hihonor.com%2Fdata%2Fattachment%2Fforum%2F202111%2F21%2F110111zemdi1ztn7hb0mom.gif&refer=http%3A%2F%2Fres1-cn.c.hihonor.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654234022&t=85020876006d1e2fd323864bc03630fa');
+background-repeat:no-repeat;
+  background-position:right 5px bottom 33px;
+
+    width: 70vw;
+Height:10vh;
+    color: #80CBC4;
+    display: inline-block;
+    box-shadow: none；
+}
+
+.card:hover {
+    margin-top:0px;
+    box-shadow: none;
+}
+
+.clock {
+    display: inline;
+    font-family: "Sofia";
+    font-size: 1em;
+   
+}
+
+.time {
+    display: inline;
+    min-width: 20px;
+}
+
+.colon {
+    font-size: 1.1em;
+    display: inline-block;
+}
+
+.date {
+    display: inline;
+    min-width: 60px;
+     font-family: "Sofia";
+    font-size: 1em;
+    padding-right: 30px;
+}
+.greet{
+    
+    display:inline;
+    font-family: "Sofia";
+    font-size: 1rem;
+     padding-right: 30px;
+}
+
+    </style>
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:400,700" rel="stylesheet">
+
+<div class="full-table">
+  <div class="table-cell">
+    
+    <div class="card">
+        <div class="greet" id="greet"></div>
+      <div class="date" id="date"></div>
+      <div class="clock">
+        <div class="time" id="hour"></div>
+        <div class="colon">:</div>
+        <div class="time" id="min"></div>
+        <div class="colon">:</div>
+        <div class="time" id="sec"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+    function date() {
+var today = new Date();
+document.getElementById('date').innerHTML = today.toDateString();
+}
+
+
+function clock() {
+var today = new Date();
+var hour = zeros(twelveHour(today.getHours()));
+var minutes = zeros(today.getMinutes());
+var seconds = zeros(today.getSeconds());
+if(today.getHours() >=12){
+    seconds+=" pm"
+}
+else{
+    seconds+=" am"
+}
+hrs = today.getHours();
+if (hrs < 12)
+        greet = '🎀hello,my day ✌';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = '😊❤加油鸭 ';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = '🌙⭐⭐ ';
+// console.log(today.toLocaleTimeString());
+document.getElementById('greet').innerHTML = greet;
+document.getElementById('hour').innerHTML = hour;
+document.getElementById('min').innerHTML = minutes;
+document.getElementById('sec').innerHTML = seconds;
+}
+
+function twelveHour(hour) {
+if (hour > 12) {
+    return hour -= 12 
+} else if (hour === 0) {
+    return hour = 12;
+} else {
+    return hour
+}
+}
+    
+// adds zero infront of single digit number
+function zeros(num) {
+if (num < 10) {
+    num = '0' + num
+};
+return num;
+}
+
+function dateTime() {
+date();
+clock();
+setTimeout(dateTime, 500);
+}
+
+dateTime()
+// END
+</script>
+
+</body>
+</html>
